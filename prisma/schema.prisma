@@ -18,14 +18,15 @@ enum Role {
 }
 
 model User {
-  id           String    @id @default(uuid(4))
+  id           String         @id @default(uuid(4))
   username     String
-  email        String    @unique
+  email        String         @unique
   passwordHash String
-  role         Role      @default(Reader)
+  role         Role           @default(Reader)
   Post         Post[]
   Comment      Comment[]
   Like         Like[]
+  RefreshToken RefreshToken[]
 }
 
 model Post {
@@ -58,4 +59,11 @@ model Like {
   postId String
 
   @@id([userId, postId])
+}
+
+model RefreshToken {
+  token     String   @id
+  user      User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+  userId    String
+  createdAt DateTime @default(now())
 }
