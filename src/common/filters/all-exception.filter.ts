@@ -1,11 +1,13 @@
 import {
   ArgumentsHost,
+  Catch,
   ExceptionFilter,
   HttpException,
   HttpStatus,
 } from '@nestjs/common';
 import { HttpAdapterHost } from '@nestjs/core';
 
+@Catch()
 export class CatchAllHttpExecption implements ExceptionFilter {
   constructor(private readonly httpAdapterHost: HttpAdapterHost) {}
 
@@ -26,10 +28,11 @@ export class CatchAllHttpExecption implements ExceptionFilter {
 
     const message =
       exception instanceof HttpException
-        ? exception.message
+        ? exceptionResponse.error
         : HttpStatus.INTERNAL_SERVER_ERROR;
 
-    const details = exceptionResponse?.details || null;
+    const details = exceptionResponse?.message || null;
+
     const error =
       exceptionResponse?.error ||
       (exception instanceof HttpException ? exception.name : null);
