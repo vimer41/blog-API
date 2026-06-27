@@ -416,6 +416,7 @@ export const ModelName = {
   Post: 'Post',
   Comment: 'Comment',
   Like: 'Like',
+  RefreshToken: 'RefreshToken',
 } as const;
 
 export type ModelName = (typeof ModelName)[keyof typeof ModelName];
@@ -437,7 +438,7 @@ export type TypeMap<
     omit: GlobalOmitOptions;
   };
   meta: {
-    modelProps: 'user' | 'post' | 'comment' | 'like';
+    modelProps: 'user' | 'post' | 'comment' | 'like' | 'refreshToken';
     txIsolationLevel: TransactionIsolationLevel;
   };
   model: {
@@ -745,6 +746,82 @@ export type TypeMap<
         };
       };
     };
+    RefreshToken: {
+      payload: Prisma.$RefreshTokenPayload<ExtArgs>;
+      fields: Prisma.RefreshTokenFieldRefs;
+      operations: {
+        findUnique: {
+          args: Prisma.RefreshTokenFindUniqueArgs<ExtArgs>;
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$RefreshTokenPayload> | null;
+        };
+        findUniqueOrThrow: {
+          args: Prisma.RefreshTokenFindUniqueOrThrowArgs<ExtArgs>;
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$RefreshTokenPayload>;
+        };
+        findFirst: {
+          args: Prisma.RefreshTokenFindFirstArgs<ExtArgs>;
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$RefreshTokenPayload> | null;
+        };
+        findFirstOrThrow: {
+          args: Prisma.RefreshTokenFindFirstOrThrowArgs<ExtArgs>;
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$RefreshTokenPayload>;
+        };
+        findMany: {
+          args: Prisma.RefreshTokenFindManyArgs<ExtArgs>;
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$RefreshTokenPayload>[];
+        };
+        create: {
+          args: Prisma.RefreshTokenCreateArgs<ExtArgs>;
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$RefreshTokenPayload>;
+        };
+        createMany: {
+          args: Prisma.RefreshTokenCreateManyArgs<ExtArgs>;
+          result: BatchPayload;
+        };
+        createManyAndReturn: {
+          args: Prisma.RefreshTokenCreateManyAndReturnArgs<ExtArgs>;
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$RefreshTokenPayload>[];
+        };
+        delete: {
+          args: Prisma.RefreshTokenDeleteArgs<ExtArgs>;
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$RefreshTokenPayload>;
+        };
+        update: {
+          args: Prisma.RefreshTokenUpdateArgs<ExtArgs>;
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$RefreshTokenPayload>;
+        };
+        deleteMany: {
+          args: Prisma.RefreshTokenDeleteManyArgs<ExtArgs>;
+          result: BatchPayload;
+        };
+        updateMany: {
+          args: Prisma.RefreshTokenUpdateManyArgs<ExtArgs>;
+          result: BatchPayload;
+        };
+        updateManyAndReturn: {
+          args: Prisma.RefreshTokenUpdateManyAndReturnArgs<ExtArgs>;
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$RefreshTokenPayload>[];
+        };
+        upsert: {
+          args: Prisma.RefreshTokenUpsertArgs<ExtArgs>;
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$RefreshTokenPayload>;
+        };
+        aggregate: {
+          args: Prisma.RefreshTokenAggregateArgs<ExtArgs>;
+          result: runtime.Types.Utils.Optional<Prisma.AggregateRefreshToken>;
+        };
+        groupBy: {
+          args: Prisma.RefreshTokenGroupByArgs<ExtArgs>;
+          result: runtime.Types.Utils.Optional<Prisma.RefreshTokenGroupByOutputType>[];
+        };
+        count: {
+          args: Prisma.RefreshTokenCountArgs<ExtArgs>;
+          result:
+            | runtime.Types.Utils.Optional<Prisma.RefreshTokenCountAggregateOutputType>
+            | number;
+        };
+      };
+    };
   };
 } & {
   other: {
@@ -826,6 +903,15 @@ export const LikeScalarFieldEnum = {
 
 export type LikeScalarFieldEnum =
   (typeof LikeScalarFieldEnum)[keyof typeof LikeScalarFieldEnum];
+
+export const RefreshTokenScalarFieldEnum = {
+  token: 'token',
+  userId: 'userId',
+  createdAt: 'createdAt',
+} as const;
+
+export type RefreshTokenScalarFieldEnum =
+  (typeof RefreshTokenScalarFieldEnum)[keyof typeof RefreshTokenScalarFieldEnum];
 
 export const SortOrder = {
   asc: 'asc',
@@ -1031,6 +1117,7 @@ export type GlobalOmitConfig = {
   post?: Prisma.PostOmit;
   comment?: Prisma.CommentOmit;
   like?: Prisma.LikeOmit;
+  refreshToken?: Prisma.RefreshTokenOmit;
 };
 
 /* Types for Logging */

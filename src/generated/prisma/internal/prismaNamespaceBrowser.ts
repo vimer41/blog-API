@@ -58,6 +58,7 @@ export const ModelName = {
   Post: 'Post',
   Comment: 'Comment',
   Like: 'Like',
+  RefreshToken: 'RefreshToken',
 } as const;
 
 export type ModelName = (typeof ModelName)[keyof typeof ModelName];
@@ -118,6 +119,15 @@ export const LikeScalarFieldEnum = {
 
 export type LikeScalarFieldEnum =
   (typeof LikeScalarFieldEnum)[keyof typeof LikeScalarFieldEnum];
+
+export const RefreshTokenScalarFieldEnum = {
+  token: 'token',
+  userId: 'userId',
+  createdAt: 'createdAt',
+} as const;
+
+export type RefreshTokenScalarFieldEnum =
+  (typeof RefreshTokenScalarFieldEnum)[keyof typeof RefreshTokenScalarFieldEnum];
 
 export const SortOrder = {
   asc: 'asc',

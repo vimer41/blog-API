@@ -8,7 +8,6 @@ import { PrismaService } from '../prisma/prisma.service.js';
 import { CreateUserDTO } from './dto/create.user.dto.js';
 import * as bcrypt from 'bcrypt';
 import { Role } from '../generated/prisma/enums.js';
-import { Prisma } from '../generated/prisma/client.js';
 
 @Injectable()
 export class UserService {

@@ -189,6 +189,7 @@ export type UserWhereInput = {
   Post?: Prisma.PostListRelationFilter;
   Comment?: Prisma.CommentListRelationFilter;
   Like?: Prisma.LikeListRelationFilter;
+  RefreshToken?: Prisma.RefreshTokenListRelationFilter;
 };
 
 export type UserOrderByWithRelationInput = {
@@ -200,6 +201,7 @@ export type UserOrderByWithRelationInput = {
   Post?: Prisma.PostOrderByRelationAggregateInput;
   Comment?: Prisma.CommentOrderByRelationAggregateInput;
   Like?: Prisma.LikeOrderByRelationAggregateInput;
+  RefreshToken?: Prisma.RefreshTokenOrderByRelationAggregateInput;
 };
 
 export type UserWhereUniqueInput = Prisma.AtLeast<
@@ -215,6 +217,7 @@ export type UserWhereUniqueInput = Prisma.AtLeast<
     Post?: Prisma.PostListRelationFilter;
     Comment?: Prisma.CommentListRelationFilter;
     Like?: Prisma.LikeListRelationFilter;
+    RefreshToken?: Prisma.RefreshTokenListRelationFilter;
   },
   'id' | 'email'
 >;
@@ -254,6 +257,7 @@ export type UserCreateInput = {
   Post?: Prisma.PostCreateNestedManyWithoutAuthorInput;
   Comment?: Prisma.CommentCreateNestedManyWithoutAuthorInput;
   Like?: Prisma.LikeCreateNestedManyWithoutUserInput;
+  RefreshToken?: Prisma.RefreshTokenCreateNestedManyWithoutUserInput;
 };
 
 export type UserUncheckedCreateInput = {
@@ -265,6 +269,7 @@ export type UserUncheckedCreateInput = {
   Post?: Prisma.PostUncheckedCreateNestedManyWithoutAuthorInput;
   Comment?: Prisma.CommentUncheckedCreateNestedManyWithoutAuthorInput;
   Like?: Prisma.LikeUncheckedCreateNestedManyWithoutUserInput;
+  RefreshToken?: Prisma.RefreshTokenUncheckedCreateNestedManyWithoutUserInput;
 };
 
 export type UserUpdateInput = {
@@ -276,6 +281,7 @@ export type UserUpdateInput = {
   Post?: Prisma.PostUpdateManyWithoutAuthorNestedInput;
   Comment?: Prisma.CommentUpdateManyWithoutAuthorNestedInput;
   Like?: Prisma.LikeUpdateManyWithoutUserNestedInput;
+  RefreshToken?: Prisma.RefreshTokenUpdateManyWithoutUserNestedInput;
 };
 
 export type UserUncheckedUpdateInput = {
@@ -287,6 +293,7 @@ export type UserUncheckedUpdateInput = {
   Post?: Prisma.PostUncheckedUpdateManyWithoutAuthorNestedInput;
   Comment?: Prisma.CommentUncheckedUpdateManyWithoutAuthorNestedInput;
   Like?: Prisma.LikeUncheckedUpdateManyWithoutUserNestedInput;
+  RefreshToken?: Prisma.RefreshTokenUncheckedUpdateManyWithoutUserNestedInput;
 };
 
 export type UserCreateManyInput = {
@@ -428,6 +435,32 @@ export type UserUpdateOneRequiredWithoutLikeNestedInput = {
   >;
 };
 
+export type UserCreateNestedOneWithoutRefreshTokenInput = {
+  create?: Prisma.XOR<
+    Prisma.UserCreateWithoutRefreshTokenInput,
+    Prisma.UserUncheckedCreateWithoutRefreshTokenInput
+  >;
+  connectOrCreate?: Prisma.UserCreateOrConnectWithoutRefreshTokenInput;
+  connect?: Prisma.UserWhereUniqueInput;
+};
+
+export type UserUpdateOneRequiredWithoutRefreshTokenNestedInput = {
+  create?: Prisma.XOR<
+    Prisma.UserCreateWithoutRefreshTokenInput,
+    Prisma.UserUncheckedCreateWithoutRefreshTokenInput
+  >;
+  connectOrCreate?: Prisma.UserCreateOrConnectWithoutRefreshTokenInput;
+  upsert?: Prisma.UserUpsertWithoutRefreshTokenInput;
+  connect?: Prisma.UserWhereUniqueInput;
+  update?: Prisma.XOR<
+    Prisma.XOR<
+      Prisma.UserUpdateToOneWithWhereWithoutRefreshTokenInput,
+      Prisma.UserUpdateWithoutRefreshTokenInput
+    >,
+    Prisma.UserUncheckedUpdateWithoutRefreshTokenInput
+  >;
+};
+
 export type UserCreateWithoutPostInput = {
   id?: string;
   username: string;
@@ -436,6 +469,7 @@ export type UserCreateWithoutPostInput = {
   role?: $Enums.Role;
   Comment?: Prisma.CommentCreateNestedManyWithoutAuthorInput;
   Like?: Prisma.LikeCreateNestedManyWithoutUserInput;
+  RefreshToken?: Prisma.RefreshTokenCreateNestedManyWithoutUserInput;
 };
 
 export type UserUncheckedCreateWithoutPostInput = {
@@ -446,6 +480,7 @@ export type UserUncheckedCreateWithoutPostInput = {
   role?: $Enums.Role;
   Comment?: Prisma.CommentUncheckedCreateNestedManyWithoutAuthorInput;
   Like?: Prisma.LikeUncheckedCreateNestedManyWithoutUserInput;
+  RefreshToken?: Prisma.RefreshTokenUncheckedCreateNestedManyWithoutUserInput;
 };
 
 export type UserCreateOrConnectWithoutPostInput = {
@@ -484,6 +519,7 @@ export type UserUpdateWithoutPostInput = {
   role?: Prisma.EnumRoleFieldUpdateOperationsInput | $Enums.Role;
   Comment?: Prisma.CommentUpdateManyWithoutAuthorNestedInput;
   Like?: Prisma.LikeUpdateManyWithoutUserNestedInput;
+  RefreshToken?: Prisma.RefreshTokenUpdateManyWithoutUserNestedInput;
 };
 
 export type UserUncheckedUpdateWithoutPostInput = {
@@ -494,6 +530,7 @@ export type UserUncheckedUpdateWithoutPostInput = {
   role?: Prisma.EnumRoleFieldUpdateOperationsInput | $Enums.Role;
   Comment?: Prisma.CommentUncheckedUpdateManyWithoutAuthorNestedInput;
   Like?: Prisma.LikeUncheckedUpdateManyWithoutUserNestedInput;
+  RefreshToken?: Prisma.RefreshTokenUncheckedUpdateManyWithoutUserNestedInput;
 };
 
 export type UserCreateWithoutCommentInput = {
@@ -504,6 +541,7 @@ export type UserCreateWithoutCommentInput = {
   role?: $Enums.Role;
   Post?: Prisma.PostCreateNestedManyWithoutAuthorInput;
   Like?: Prisma.LikeCreateNestedManyWithoutUserInput;
+  RefreshToken?: Prisma.RefreshTokenCreateNestedManyWithoutUserInput;
 };
 
 export type UserUncheckedCreateWithoutCommentInput = {
@@ -514,6 +552,7 @@ export type UserUncheckedCreateWithoutCommentInput = {
   role?: $Enums.Role;
   Post?: Prisma.PostUncheckedCreateNestedManyWithoutAuthorInput;
   Like?: Prisma.LikeUncheckedCreateNestedManyWithoutUserInput;
+  RefreshToken?: Prisma.RefreshTokenUncheckedCreateNestedManyWithoutUserInput;
 };
 
 export type UserCreateOrConnectWithoutCommentInput = {
@@ -552,6 +591,7 @@ export type UserUpdateWithoutCommentInput = {
   role?: Prisma.EnumRoleFieldUpdateOperationsInput | $Enums.Role;
   Post?: Prisma.PostUpdateManyWithoutAuthorNestedInput;
   Like?: Prisma.LikeUpdateManyWithoutUserNestedInput;
+  RefreshToken?: Prisma.RefreshTokenUpdateManyWithoutUserNestedInput;
 };
 
 export type UserUncheckedUpdateWithoutCommentInput = {
@@ -562,6 +602,7 @@ export type UserUncheckedUpdateWithoutCommentInput = {
   role?: Prisma.EnumRoleFieldUpdateOperationsInput | $Enums.Role;
   Post?: Prisma.PostUncheckedUpdateManyWithoutAuthorNestedInput;
   Like?: Prisma.LikeUncheckedUpdateManyWithoutUserNestedInput;
+  RefreshToken?: Prisma.RefreshTokenUncheckedUpdateManyWithoutUserNestedInput;
 };
 
 export type UserCreateWithoutLikeInput = {
@@ -572,6 +613,7 @@ export type UserCreateWithoutLikeInput = {
   role?: $Enums.Role;
   Post?: Prisma.PostCreateNestedManyWithoutAuthorInput;
   Comment?: Prisma.CommentCreateNestedManyWithoutAuthorInput;
+  RefreshToken?: Prisma.RefreshTokenCreateNestedManyWithoutUserInput;
 };
 
 export type UserUncheckedCreateWithoutLikeInput = {
@@ -582,6 +624,7 @@ export type UserUncheckedCreateWithoutLikeInput = {
   role?: $Enums.Role;
   Post?: Prisma.PostUncheckedCreateNestedManyWithoutAuthorInput;
   Comment?: Prisma.CommentUncheckedCreateNestedManyWithoutAuthorInput;
+  RefreshToken?: Prisma.RefreshTokenUncheckedCreateNestedManyWithoutUserInput;
 };
 
 export type UserCreateOrConnectWithoutLikeInput = {
@@ -620,6 +663,7 @@ export type UserUpdateWithoutLikeInput = {
   role?: Prisma.EnumRoleFieldUpdateOperationsInput | $Enums.Role;
   Post?: Prisma.PostUpdateManyWithoutAuthorNestedInput;
   Comment?: Prisma.CommentUpdateManyWithoutAuthorNestedInput;
+  RefreshToken?: Prisma.RefreshTokenUpdateManyWithoutUserNestedInput;
 };
 
 export type UserUncheckedUpdateWithoutLikeInput = {
@@ -630,6 +674,79 @@ export type UserUncheckedUpdateWithoutLikeInput = {
   role?: Prisma.EnumRoleFieldUpdateOperationsInput | $Enums.Role;
   Post?: Prisma.PostUncheckedUpdateManyWithoutAuthorNestedInput;
   Comment?: Prisma.CommentUncheckedUpdateManyWithoutAuthorNestedInput;
+  RefreshToken?: Prisma.RefreshTokenUncheckedUpdateManyWithoutUserNestedInput;
+};
+
+export type UserCreateWithoutRefreshTokenInput = {
+  id?: string;
+  username: string;
+  email: string;
+  passwordHash: string;
+  role?: $Enums.Role;
+  Post?: Prisma.PostCreateNestedManyWithoutAuthorInput;
+  Comment?: Prisma.CommentCreateNestedManyWithoutAuthorInput;
+  Like?: Prisma.LikeCreateNestedManyWithoutUserInput;
+};
+
+export type UserUncheckedCreateWithoutRefreshTokenInput = {
+  id?: string;
+  username: string;
+  email: string;
+  passwordHash: string;
+  role?: $Enums.Role;
+  Post?: Prisma.PostUncheckedCreateNestedManyWithoutAuthorInput;
+  Comment?: Prisma.CommentUncheckedCreateNestedManyWithoutAuthorInput;
+  Like?: Prisma.LikeUncheckedCreateNestedManyWithoutUserInput;
+};
+
+export type UserCreateOrConnectWithoutRefreshTokenInput = {
+  where: Prisma.UserWhereUniqueInput;
+  create: Prisma.XOR<
+    Prisma.UserCreateWithoutRefreshTokenInput,
+    Prisma.UserUncheckedCreateWithoutRefreshTokenInput
+  >;
+};
+
+export type UserUpsertWithoutRefreshTokenInput = {
+  update: Prisma.XOR<
+    Prisma.UserUpdateWithoutRefreshTokenInput,
+    Prisma.UserUncheckedUpdateWithoutRefreshTokenInput
+  >;
+  create: Prisma.XOR<
+    Prisma.UserCreateWithoutRefreshTokenInput,
+    Prisma.UserUncheckedCreateWithoutRefreshTokenInput
+  >;
+  where?: Prisma.UserWhereInput;
+};
+
+export type UserUpdateToOneWithWhereWithoutRefreshTokenInput = {
+  where?: Prisma.UserWhereInput;
+  data: Prisma.XOR<
+    Prisma.UserUpdateWithoutRefreshTokenInput,
+    Prisma.UserUncheckedUpdateWithoutRefreshTokenInput
+  >;
+};
+
+export type UserUpdateWithoutRefreshTokenInput = {
+  id?: Prisma.StringFieldUpdateOperationsInput | string;
+  username?: Prisma.StringFieldUpdateOperationsInput | string;
+  email?: Prisma.StringFieldUpdateOperationsInput | string;
+  passwordHash?: Prisma.StringFieldUpdateOperationsInput | string;
+  role?: Prisma.EnumRoleFieldUpdateOperationsInput | $Enums.Role;
+  Post?: Prisma.PostUpdateManyWithoutAuthorNestedInput;
+  Comment?: Prisma.CommentUpdateManyWithoutAuthorNestedInput;
+  Like?: Prisma.LikeUpdateManyWithoutUserNestedInput;
+};
+
+export type UserUncheckedUpdateWithoutRefreshTokenInput = {
+  id?: Prisma.StringFieldUpdateOperationsInput | string;
+  username?: Prisma.StringFieldUpdateOperationsInput | string;
+  email?: Prisma.StringFieldUpdateOperationsInput | string;
+  passwordHash?: Prisma.StringFieldUpdateOperationsInput | string;
+  role?: Prisma.EnumRoleFieldUpdateOperationsInput | $Enums.Role;
+  Post?: Prisma.PostUncheckedUpdateManyWithoutAuthorNestedInput;
+  Comment?: Prisma.CommentUncheckedUpdateManyWithoutAuthorNestedInput;
+  Like?: Prisma.LikeUncheckedUpdateManyWithoutUserNestedInput;
 };
 
 /**
@@ -640,6 +757,7 @@ export type UserCountOutputType = {
   Post: number;
   Comment: number;
   Like: number;
+  RefreshToken: number;
 };
 
 export type UserCountOutputTypeSelect<
@@ -649,6 +767,7 @@ export type UserCountOutputTypeSelect<
   Post?: boolean | UserCountOutputTypeCountPostArgs;
   Comment?: boolean | UserCountOutputTypeCountCommentArgs;
   Like?: boolean | UserCountOutputTypeCountLikeArgs;
+  RefreshToken?: boolean | UserCountOutputTypeCountRefreshTokenArgs;
 };
 
 /**
@@ -694,6 +813,16 @@ export type UserCountOutputTypeCountLikeArgs<
   where?: Prisma.LikeWhereInput;
 };
 
+/**
+ * UserCountOutputType without action
+ */
+export type UserCountOutputTypeCountRefreshTokenArgs<
+  ExtArgs extends runtime.Types.Extensions.InternalArgs =
+    runtime.Types.Extensions.DefaultArgs,
+> = {
+  where?: Prisma.RefreshTokenWhereInput;
+};
+
 export type UserSelect<
   ExtArgs extends runtime.Types.Extensions.InternalArgs =
     runtime.Types.Extensions.DefaultArgs,
@@ -707,6 +836,7 @@ export type UserSelect<
     Post?: boolean | Prisma.User$PostArgs<ExtArgs>;
     Comment?: boolean | Prisma.User$CommentArgs<ExtArgs>;
     Like?: boolean | Prisma.User$LikeArgs<ExtArgs>;
+    RefreshToken?: boolean | Prisma.User$RefreshTokenArgs<ExtArgs>;
     _count?: boolean | Prisma.UserCountOutputTypeDefaultArgs<ExtArgs>;
   },
   ExtArgs['result']['user']
@@ -762,6 +892,7 @@ export type UserInclude<
   Post?: boolean | Prisma.User$PostArgs<ExtArgs>;
   Comment?: boolean | Prisma.User$CommentArgs<ExtArgs>;
   Like?: boolean | Prisma.User$LikeArgs<ExtArgs>;
+  RefreshToken?: boolean | Prisma.User$RefreshTokenArgs<ExtArgs>;
   _count?: boolean | Prisma.UserCountOutputTypeDefaultArgs<ExtArgs>;
 };
 export type UserIncludeCreateManyAndReturn<
@@ -782,6 +913,7 @@ export type $UserPayload<
     Post: Prisma.$PostPayload<ExtArgs>[];
     Comment: Prisma.$CommentPayload<ExtArgs>[];
     Like: Prisma.$LikePayload<ExtArgs>[];
+    RefreshToken: Prisma.$RefreshTokenPayload<ExtArgs>[];
   };
   scalars: runtime.Types.Extensions.GetPayloadResult<
     {
@@ -1373,6 +1505,17 @@ export interface Prisma__UserClient<
       >
     | Null
   >;
+  RefreshToken<T extends Prisma.User$RefreshTokenArgs<ExtArgs> = {}>(
+    args?: Prisma.Subset<T, Prisma.User$RefreshTokenArgs<ExtArgs>>,
+  ): Prisma.PrismaPromise<
+    | runtime.Types.Result.GetResult<
+        Prisma.$RefreshTokenPayload<ExtArgs>,
+        T,
+        'findMany',
+        GlobalOmitOptions
+      >
+    | Null
+  >;
   /**
    * Attaches callbacks for the resolution and/or rejection of the Promise.
    * @param onfulfilled The callback to execute when the Promise is resolved.
@@ -1950,6 +2093,37 @@ export type User$LikeArgs<
   take?: number;
   skip?: number;
   distinct?: Prisma.LikeScalarFieldEnum | Prisma.LikeScalarFieldEnum[];
+};
+
+/**
+ * User.RefreshToken
+ */
+export type User$RefreshTokenArgs<
+  ExtArgs extends runtime.Types.Extensions.InternalArgs =
+    runtime.Types.Extensions.DefaultArgs,
+> = {
+  /**
+   * Select specific fields to fetch from the RefreshToken
+   */
+  select?: Prisma.RefreshTokenSelect<ExtArgs> | null;
+  /**
+   * Omit specific fields from the RefreshToken
+   */
+  omit?: Prisma.RefreshTokenOmit<ExtArgs> | null;
+  /**
+   * Choose, which related nodes to fetch as well
+   */
+  include?: Prisma.RefreshTokenInclude<ExtArgs> | null;
+  where?: Prisma.RefreshTokenWhereInput;
+  orderBy?:
+    | Prisma.RefreshTokenOrderByWithRelationInput
+    | Prisma.RefreshTokenOrderByWithRelationInput[];
+  cursor?: Prisma.RefreshTokenWhereUniqueInput;
+  take?: number;
+  skip?: number;
+  distinct?:
+    | Prisma.RefreshTokenScalarFieldEnum
+    | Prisma.RefreshTokenScalarFieldEnum[];
 };
 
 /**

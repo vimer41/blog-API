@@ -36,3 +36,8 @@ export type Comment = Prisma.CommentModel;
  *
  */
 export type Like = Prisma.LikeModel;
+/**
+ * Model RefreshToken
+ *
+ */
+export type RefreshToken = Prisma.RefreshTokenModel;
