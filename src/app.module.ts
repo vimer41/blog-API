@@ -7,6 +7,7 @@ import { UserModule } from './user/user.module.js';
 import { AuthModule } from './auth/auth.module.js';
 import { PostModule } from './post/post.module.js';
 import { CommentModule } from './comment/comment.module.js';
+import { LikeModule } from './like/like.module.js';
 
 @Module({
   imports: [
@@ -18,6 +19,7 @@ import { CommentModule } from './comment/comment.module.js';
     AuthModule,
     PostModule,
     CommentModule,
+    LikeModule,
   ],
   controllers: [AppController],
   providers: [AppService],
