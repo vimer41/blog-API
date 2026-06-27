@@ -46,6 +46,14 @@ export class AuthService {
   }
 
   async refreshTokens(badToken: string) {
+    try {
+      this.jwtService.verify(badToken, {
+        secret: this.configService.getOrThrow<string>('JWT_REFRESH_SECRET'),
+      });
+    } catch {
+      throw new UnauthorizedException('Невалидный токен');
+    }
+
     const tokenDb = await this.prisma.refreshToken.findFirst({
       where: {
         token: badToken,
