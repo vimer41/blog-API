@@ -69,7 +69,7 @@ export class PostService {
       take: limit,
     });
 
-    if (!posts) {
+    if (posts.length === 0) {
       throw new NotFoundException('Посты не найдены');
     }
 
