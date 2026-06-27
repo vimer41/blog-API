@@ -127,6 +127,6 @@ export class PostService {
       where: { id },
     });
 
-    return { details: 'Пост был успешно удален' };
+    return { status: 200, details: 'Пост был успешно удален' };
   }
 }
