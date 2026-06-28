@@ -5,7 +5,7 @@ export class CreatePostDto {
   @ApiProperty({
     description: 'Заголовок поста',
     example: 'Крутой пост',
-    nullable: false,
+    required: true,
   })
   @IsNotEmpty({ message: 'Заголовок является обязательным ' })
   @IsString()
@@ -15,7 +15,7 @@ export class CreatePostDto {
   @ApiProperty({
     description: 'Содержание поста',
     example: 'Пост 2482852',
-    nullable: false,
+    required: true,
   })
   @IsNotEmpty({ message: 'Содержание поста не должно быть пустым' })
   @IsString()

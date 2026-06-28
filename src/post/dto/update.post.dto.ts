@@ -5,7 +5,7 @@ export class UpdatePostDto {
   @ApiProperty({
     description: 'Новый заголовок поста',
     example: 'Новый крутой пост',
-    nullable: false,
+    required: false,
   })
   @IsOptional()
   @IsString()
@@ -15,7 +15,7 @@ export class UpdatePostDto {
   @ApiProperty({
     description: 'Новый текст поста',
     example: 'Новое крутое содержание',
-    nullable: false,
+    required: false,
   })
   @IsOptional()
   @IsString()
