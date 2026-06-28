@@ -22,8 +22,12 @@ const userData: Prisma.UserCreateInput[] = [
 
 export async function main() {
   for (const u of userData) {
-    await prisma.user.create({
-      data: u,
+    await prisma.user.upsert({
+      where: {
+        email: u.email
+      },
+      update: {},
+      create: u
     });
   }
 }
