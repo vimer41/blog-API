@@ -5,7 +5,7 @@ export class RegisterDto {
   @ApiProperty({
     description: 'Имя пользователя',
     example: 'Дмитрий',
-    nullable: false,
+    required: true,
   })
   @IsString()
   @IsNotEmpty({ message: 'Имя пользователя является обязательным' })
@@ -14,7 +14,7 @@ export class RegisterDto {
   @ApiProperty({
     description: 'Электронная почта пользователя',
     example: 'pochta@example.com',
-    nullable: false,
+    required: true,
   })
   @IsEmail({}, { message: 'Неверный формат почты' })
   @IsNotEmpty({ message: 'Почта является обязательной' })
@@ -23,7 +23,7 @@ export class RegisterDto {
   @ApiProperty({
     description: 'Пароль пользователя от 8 символов',
     example: '12345678',
-    nullable: false,
+    required: true,
   })
   @IsNotEmpty({ message: 'Пароль является обязательнымм' })
   @IsString()
