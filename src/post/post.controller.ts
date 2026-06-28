@@ -22,8 +22,10 @@ import {
   ApiOperation,
   ApiParam,
   ApiResponse,
+  ApiTags,
 } from '@nestjs/swagger';
 
+@ApiTags('Посты')
 @Controller('post')
 export class PostController {
   constructor(private readonly postService: PostService) {}

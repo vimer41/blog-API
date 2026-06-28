@@ -20,6 +20,7 @@ async function bootstrap() {
     .setDescription(
       'REST API для работы с блогом, возможность создания постов, комментариев, лайки на базе JWT авторизации',
     )
+    .addBearerAuth()
     .setVersion('1.0')
     .addTag('blog')
     .build();
