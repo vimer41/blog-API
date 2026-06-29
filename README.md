@@ -40,7 +40,7 @@ Backend-приложение для ведения блога Modsen.
 
 1. Склонируйте репозиторий:
    ```bash
-   git clone [ссылка на твой репо]
+   git clone https://github.com/vimer41/modsen-blog-API
    cd modsen-blog
    ```
 
