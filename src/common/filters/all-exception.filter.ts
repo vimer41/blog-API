@@ -6,6 +6,7 @@ import {
   HttpStatus,
 } from '@nestjs/common';
 import { HttpAdapterHost } from '@nestjs/core';
+import { Http2ServerResponse } from 'node:http2';
 
 @Catch()
 export class CatchAllHttpExecption implements ExceptionFilter {
@@ -35,7 +36,9 @@ export class CatchAllHttpExecption implements ExceptionFilter {
 
     const error =
       exceptionResponse?.error ||
-      (exception instanceof HttpException ? exception.name : null);
+      (exception instanceof HttpException
+        ? exception.name
+        : 'Internal Server Error');
 
     const responseBody = {
       statusCode: httpStatus,

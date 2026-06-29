@@ -10,6 +10,23 @@ export class LikeService {
     private readonly postService: PostService,
   ) {}
 
+  async getLikes(postId: string) {
+    const post = await this.postService.findPostById(postId);
+
+    if (!post) {
+      throw new NotFoundException('Пост не найден');
+    }
+
+    const countLikesOfPost = await this.prisma.like.count({
+      where: { postId },
+    });
+
+    return {
+      postId,
+      countLikesOfPost,
+    };
+  }
+
   async createLike(postId: string, user: JwtPayloadInterface) {
     const post = await this.postService.findPostById(postId);
     if (!post) {

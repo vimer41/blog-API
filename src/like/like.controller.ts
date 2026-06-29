@@ -1,4 +1,4 @@
-import { Controller, Param, Post, Req, UseGuards } from '@nestjs/common';
+import { Controller, Get, Param, Post, Req, UseGuards } from '@nestjs/common';
 import { LikeService } from './like.service.js';
 import { JwtAuthGuard } from '../auth/guards/jwt.auth.guard.js';
 import {
@@ -13,6 +13,23 @@ import {
 @Controller('like')
 export class LikeController {
   constructor(private readonly likeService: LikeService) {}
+
+  @ApiBearerAuth()
+  @ApiOperation({ summary: 'Получить количество лайков поста' })
+  @ApiParam({
+    name: 'postId',
+    description: 'uuid поста',
+    example: 'ffed541e-a5fe-4cd3-88de-542c70b07111',
+  })
+  @ApiResponse({
+    status: 200,
+    description: 'Объект в виде {id поста, количество лайков у поста}',
+  })
+  @ApiResponse({ status: 404, description: 'Пост не найден' })
+  @Get('/post/:postId')
+  async getLikesByPostId(@Param('postId') postId: string) {
+    return this.likeService.getLikes(postId);
+  }
 
   @ApiBearerAuth()
   @ApiOperation({ summary: 'Поставить/убрать лайк под постом' })
