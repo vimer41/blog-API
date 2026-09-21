@@ -1,4 +1,4 @@
-# Modsen Blog API
+# Blog API
 
 Backend-приложение для ведения блога Modsen.
 
@@ -40,8 +40,8 @@ Backend-приложение для ведения блога Modsen.
 
 1. Склонируйте репозиторий:
    ```bash
-   git clone https://github.com/vimer41/modsen-blog-API
-   cd modsen-blog
+   git clone https://github.com/vimer41/blog-API
+   cd blog-API
    ```
 
 2. Создайте .env файл в корне проекта, пример, .env.example
